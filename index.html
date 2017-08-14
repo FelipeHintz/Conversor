@@ -20,29 +20,29 @@
 					<div class="col-md-6 col-xs-6 form-line">
 			  			<div class="form-group">
 			  				<label for="Label0">Valor</label>
-					    	<input id="Input0" type="text" class="form-control" id="" placeholder=" Valor" onkeyup="conversor.Decimal_Binario()">
+					    	<input id="Input0" type="text" class="form-control" id="" placeholder=" Valor" onkeyup="conversor.inicioConversor()">
 				  		</div>
 						<div class="form-group">
 			  				<label for="Decimal">Base</label>
-					    	<select type="text" class="form-control" id="Select">
-								<option value="Decimal" selected>Decimal</option>
-								<option value="Binario">Binario</option>
-								<option value="Hexadecimal">Hexadecimal</option>
-								<option value="Octal">Octal</option>
+					    	<select type="text" class="form-control" onclick="conversor.inicioConversor()" id="Select">
+								<option value="decimal">Decimal</option>
+								<option value="binario">Binario</option>
+								<option value="hexadecimal">Hexadecimal</option>
+								<option value="octal">Octal</option>
 							</select>
 				  		</div>
 			  		</div>
 			  		<div class="col-md-6 col-xs-6">
 			  			<div class="form-group">
-			  				<label for="Label1">#</label>
+			  				<label id="Label1">#</label>
 					    	<input id="Input1" type="text" class="form-control" id="" placeholder=" Valor">
 				  		</div>
 						<div class="form-group">
-			  				<label for="Label2">#</label>
+			  				<label id="Label2">#</label>
 					    	<input id="Input2" type="text" class="form-control" id="" placeholder=" Valor">
 				  		</div>
 						<div class="form-group">
-			  				<label for="Label3">#</label>
+			  				<label id="Label3">#</label>
 					    	<input id="Input3" type="text" class="form-control" id="" placeholder=" Valor" onkeyup="conversor.Binario_Decimal()">
 				  		</div>
 					</div>
