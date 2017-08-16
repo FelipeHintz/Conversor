@@ -4,9 +4,16 @@ var conversor = (function (){
 		inicioConversor:inicioConversor
 	}
 	
-	function inicioConversor () {
+	function inicioConversor (comando) {
 		
 		opcao = document.getElementById('Select').value
+		
+		if (!comando){
+			valor = document.getElementById('Input0').value = "";
+			document.getElementById('Input1').value = "";
+			document.getElementById('Input2').value = "";
+			document.getElementById('Input3').value = "";
+		}
 		
 		switch (opcao){
 			case "decimal":
@@ -76,9 +83,8 @@ var conversor = (function (){
 		document.getElementById('Label2').innerHTML = "Hexadecimal";
 		document.getElementById('Label3').innerHTML = "Octal";
 		document.getElementById('Input1').value = Binario_Decimal(valor);
-		var valorTemp = Binario_Decimal(valor);
-		document.getElementById('Input2').value = Decimal_Hexadecimal(valorTemp);
-		document.getElementById('Input3').value = Decimal_Octal(valorTemp);
+		document.getElementById('Input2').value = Binario_Hexadecimal(valor);
+		document.getElementById('Input3').value = Decimal_Octal(valor);
 
 		
 	}
@@ -112,10 +118,56 @@ var conversor = (function (){
 		var numerosHexadecimal = [];
 		var stringHexadecimal = valor+"";
 		var totalHexadecimal = 0;
+		var armazenamentoTemp = "";
+		var valorFinal = [];
 		
-		for (var i = 0; i < stringHexadecimal.length; i++){
-			if ()
+		for (var i = 0; i < stringHexadecimal.length; i++)
+			numerosHexadecimal.push(stringHexadecimal.charAt(i))
+		
+		while (numerosHexadecimal.length % 4 != 0){
+			numerosHexadecimal.push("0");
 		}
+				
+		numerosHexadecimal = numerosHexadecimal.reverse();
+			
+		var x = 0
+		
+		var armazenamento = [];
+		
+		for (var i = 0; i < numerosHexadecimal.length; i++){
+			armazenamentoTemp += numerosHexadecimal[i];
+			if ((i+1) % 4 == 0){
+				armazenamento.push(armazenamentoTemp)
+				armazenamentoTemp = "";
+			}
+		}
+		
+		console.log(armazenamento)
+		
+		var temp = 0;
+		
+		for (var j = 0; j < armazenamento.length; j++){
+			for (var i = 0; i < armazenamento[j].length; i++){
+				temp += Math.pow(2,i) * armazenamento[j].charAt(i);
+				
+				if (temp > 9) {
+					temp = verificaHexadecimal(temp);
+				}
+			}	
+			valorFinal.push(temp);
+			temp = 0;
+		}
+		
+		valorFinal = valorFinal.reverse()
+		
+		var retorno = "";
+				
+		for (var j = 0; j < armazenamento.length; j++){
+			retorno += valorFinal[j]
+		}
+			
+		return retorno;
+		
 	}
 	
 	function Decimal_Binario(valor){
