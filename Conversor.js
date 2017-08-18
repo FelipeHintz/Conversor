@@ -345,8 +345,6 @@ var conversor = (function (){
 		}
 		
 		var retorno = "";	
-
-		valorFinal = valorFinal.reverse();
 		
 		for (var j = 0; j < valorFinal.length; j++){
 			retorno += valorFinal[j]
