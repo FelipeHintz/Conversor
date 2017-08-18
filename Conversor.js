@@ -237,7 +237,7 @@ var conversor = (function (){
 		for (var i = 0; i < temp.length; i++)
 			valorDecimal += temp[i]
 		
-		return valorDecimal.reverse();
+		return valorDecimal;
 		
 	}
 	
@@ -313,10 +313,16 @@ var conversor = (function (){
 				
 		for (var i = 0; i < stringBinario.length; i++)
 			numerosBinario.push(stringBinario.charAt(i));
-				
+			
+		numerosBinario = numerosBinario.reverse();
+			
 		while (numerosBinario.length % 3 != 0){
 			numerosBinario.push("0");
 		}
+		
+		numerosBinario = numerosBinario.reverse();
+		
+		console.log(numerosBinario)
 		
 		var x = 0;
 		var armazenamento = [];
@@ -332,14 +338,16 @@ var conversor = (function (){
 		var temp = 0;
 		for (var j = 0; j < armazenamento.length; j++){
 			for (var i = 0; i < armazenamento[j].length; i++){
-				console.log(armazenamento[j].charAt(i)*posicoes[i])
 				temp += armazenamento[j].charAt(i) * posicoes[i];
 			}	
 			valorFinal.push(temp);
 			temp = 0;
 		}
 		
-		var retorno = "";		
+		var retorno = "";	
+
+		valorFinal = valorFinal.reverse();
+		
 		for (var j = 0; j < valorFinal.length; j++){
 			retorno += valorFinal[j]
 		}
@@ -358,9 +366,13 @@ var conversor = (function (){
 		for (var i = 0; i < stringBinario.length; i++)
 			numerosBinario.push(stringBinario.charAt(i))
 		
+		numerosBinario = numerosBinario.reverse();
+		
 		while (numerosBinario.length % 4 != 0){
 			numerosBinario.push("0");
 		}
+		
+		numerosBinario = numerosBinario.reverse();
 				
 		numerosBinario = numerosBinario.reverse();
 			
