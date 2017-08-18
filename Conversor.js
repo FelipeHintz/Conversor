@@ -237,7 +237,7 @@ var conversor = (function (){
 		for (var i = 0; i < temp.length; i++)
 			valorDecimal += temp[i]
 		
-		return valorDecimal;
+		return valorDecimal.reverse();
 		
 	}
 	
